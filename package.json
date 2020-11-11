@@ -9,6 +9,13 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "bin": {
+    "scripts": [
+      "src/javascript.js",
+      "node_modules/jquery/dist/jquery.min.js",
+      "node_modules/bootstrap/dist/js/bootstrap.min.js"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ganatan/angular-example-starter.git"
@@ -18,6 +25,10 @@
     "email": "dannyganatan@gmail.com",
     "url": "https://www.ganatan.com/"
   },
+  "styles": [
+    "src/styles.css",
+    "node_modules/bootstrap/dist/css/bootstrap.min.css"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ganatan/angular-example-starter/issues"
@@ -33,6 +44,8 @@
     "@angular/platform-browser": "10.2.3",
     "@angular/platform-browser-dynamic": "10.2.3",
     "@angular/router": "10.2.3",
+    "bootstrap": "^4.5.3",
+    "jquery": "^3.5.1",
     "rxjs": "6.6.3",
     "tslib": "2.0.3",
     "zone.js": "0.11.3"

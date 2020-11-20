@@ -1,5 +1,5 @@
 {
-  "name": "angular-starter",
+  "name": "angular-bootstrap",
   "version": "10.2.3",
   "scripts": {
     "ng": "ng",
@@ -16,25 +16,11 @@
       "node_modules/bootstrap/dist/js/bootstrap.min.js"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ganatan/angular-example-starter.git"
-  },
-  "author": {
-    "name": "danny",
-    "email": "dannyganatan@gmail.com",
-    "url": "https://www.ganatan.com/"
-  },
   "styles": [
-    "src/styles.css",
-    "node_modules/bootstrap/dist/css/bootstrap.min.css"
+    "src/styles.scss",
+    "node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "node_modules/font-awesome/css/font-awesome.css"
   ],
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ganatan/angular-example-starter/issues"
-  },
-  "homepage": "https://github.com/ganatan/angular-example-starter#readme",
-  "private": true,
   "dependencies": {
     "@angular/animations": "10.2.3",
     "@angular/common": "10.2.3",
@@ -45,6 +31,7 @@
     "@angular/platform-browser-dynamic": "10.2.3",
     "@angular/router": "10.2.3",
     "bootstrap": "^4.5.3",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
     "rxjs": "6.6.3",
     "tslib": "2.0.3",

@@ -1,0 +1,9 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+form > div{
+  margin-bottom: 5px;
+}
+
+form input[type='submit']{
+  margin-right: 5px;
+}

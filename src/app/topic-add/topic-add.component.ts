@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-topic-add',
@@ -14,13 +14,16 @@ export class TopicAddComponent implements OnInit{
   id: string;
   isAddMode: boolean;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.queryParams['id'];
     this.isAddMode = !this.id;
 
-    if(!this.isAddMode){
-    }
 
     this.addForm = this.formBuilder.group({
       topicName: ['', Validators.required],
@@ -29,10 +32,13 @@ export class TopicAddComponent implements OnInit{
       retentionTime: ['', Validators.required]
     });
 
+    if(!this.isAddMode){
+      this.addForm.patchValue({topicName: "Topic 1", numOfPartition: 2});
+    }
+
   };
 
   get f() { return this.addForm.controls; }
-
 
   onSubmit(){
     this.submitted = true;

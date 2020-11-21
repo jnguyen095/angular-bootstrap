@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm-2">Topic name:</div>
     <div class="col-sm-10">
-      <input type = "text" class="col-sm-3 form-control" name = "topicName" placeholder = "Topic name" [ngClass]="{ 'is-invalid': submitted && f.topicName.errors }">
+      <input type = "text" class="col-sm-3 form-control" name = "topicName" [ngClass]="{ 'is-invalid': submitted && f.topicName.errors }">
       <div *ngIf="submitted && f.topicName.errors" class="invalid-feedback">
         <div *ngIf="f.topicName.errors.required">Topic name is required</div>
       </div>
@@ -13,7 +13,7 @@
   <div class="row">
     <div class="col-sm-2">Number of partitions:</div>
     <div class="col-sm-10">
-      <input type = "number" class="col-sm-3 form-control" name = "numOfPartition" placeholder = "Number of partitions" [ngClass]="{ 'is-invalid': submitted && f.numOfPartition.errors }">
+      <input type = "number" class="col-sm-3 form-control" name = "numOfPartition" [ngClass]="{ 'is-invalid': submitted && f.numOfPartition.errors }">
       <div *ngIf="submitted && f.numOfPartition.errors" class="invalid-feedback">
         <div *ngIf="f.numOfPartition.errors.required">Number of partitions is required</div>
       </div>
@@ -23,7 +23,7 @@
   <div class="row">
     <div class="col-sm-2">Replication factors:</div>
     <div class="col-sm-10">
-      <input type = "number" class="col-sm-3 form-control" name = "numOfFactor" placeholder = "Replication factors" [ngClass]="{ 'is-invalid': submitted && f.numOfFactor.errors }">
+      <input type = "number" class="col-sm-3 form-control" name = "numOfFactor" [ngClass]="{ 'is-invalid': submitted && f.numOfFactor.errors }">
       <div *ngIf="submitted && f.numOfFactor.errors" class="invalid-feedback">
         <div *ngIf="f.numOfFactor.errors.required">Number of factors is required</div>
       </div>
@@ -33,7 +33,7 @@
   <div class="row">
     <div class="col-sm-2">Retention Time in ms:</div>
     <div class="col-sm-10">
-      <input type = "number" class="col-sm-3 form-control" name = "retentionTime" placeholder = "Retention time" [ngClass]="{ 'is-invalid': submitted && f.retentionTime.errors }">
+      <input type = "number" class="col-sm-3 form-control" value="" name = "retentionTime" [ngClass]="{ 'is-invalid': submitted && f.retentionTime.errors }">
       <div *ngIf="submitted && f.retentionTime.errors" class="invalid-feedback">
         <div *ngIf="f.retentionTime.errors.required">Retention time is required</div>
       </div>
@@ -43,7 +43,7 @@
   <div class="row">
     <div class="col-sm-2">Other configuration:</div>
     <div class="col-sm-10">
-      <input type = "text" class="col-sm-3 form-control" name = "configuration" placeholder = "Other configuration">
+      <input type = "text" class="col-sm-3 form-control" name = "configuration" >
     </div>
   </div>
 

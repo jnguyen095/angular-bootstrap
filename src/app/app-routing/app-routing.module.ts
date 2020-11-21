@@ -12,6 +12,10 @@ const routes: Routes = [
     path: 'topic',
     component: TopicAddComponent,
   },
+  {
+    path: 'topic/:id',
+    component: TopicAddComponent,
+  }
 ];
 
 

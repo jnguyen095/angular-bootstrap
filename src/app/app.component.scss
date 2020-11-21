@@ -17,7 +17,7 @@
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: #1976d2;
+  background-color: #28446B;
   color: white;
   font-weight: 600;
 }
@@ -25,10 +25,12 @@
 .toolbar a{
   color: #ffffff;
   text-transform: none;
+  font-size: 24px;
 }
 
-.toolbar img {
+.toolbar span:first-child {
   margin: 0 16px;
+  font-size: 24px;
 }
 .font-20px{
   font-size: 20px;

@@ -13,6 +13,8 @@ export class TopicAddComponent implements OnInit{
   submitted = false;
   id: string;
   isAddMode: boolean;
+  fileToUpload: File = null;
+  public show:boolean = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -52,6 +54,14 @@ export class TopicAddComponent implements OnInit{
   onReset() {
     this.submitted = false;
     this.addForm.reset();
+  }
+
+  toggle() {
+    this.show = !this.show;
+  }
+
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
   }
 
 }

@@ -1,9 +1,9 @@
-<h4 class="text-left"> ADD NEW TOPIC </h4>
+<h4 class="text-left">{{ formTitle }}</h4>
 <form [formGroup]="addForm" (ngSubmit) = "onSubmit()" >
   <div class="row">
     <div class="col-sm-2">Topic name:</div>
     <div class="col-sm-10">
-      <input type = "text" class="col-sm-5 form-control" name = "topicName" [ngClass]="{ 'is-invalid': submitted && f.topicName.errors }">
+      <input type = "text" class="col-sm-5 form-control" formControlName = "topicName" name = "topicName" [ngClass]="{ 'is-invalid': submitted && f.topicName.errors }">
       <div *ngIf="submitted && f.topicName.errors" class="invalid-feedback">
         <div *ngIf="f.topicName.errors.required">Topic name is required</div>
       </div>
@@ -13,7 +13,7 @@
   <div class="row">
     <div class="col-sm-2">Number of partitions:</div>
     <div class="col-sm-10">
-      <input type = "number" class="col-sm-5 form-control" name = "numOfPartition" [ngClass]="{ 'is-invalid': submitted && f.numOfPartition.errors }">
+      <input type = "number" class="col-sm-5 form-control" formControlName = "numOfPartition" name = "numOfPartition" [ngClass]="{ 'is-invalid': submitted && f.numOfPartition.errors }">
       <div *ngIf="submitted && f.numOfPartition.errors" class="invalid-feedback">
         <div *ngIf="f.numOfPartition.errors.required">Number of partitions is required</div>
       </div>
@@ -23,7 +23,7 @@
   <div class="row">
     <div class="col-sm-2">Replication factors:</div>
     <div class="col-sm-10">
-      <input type = "number" class="col-sm-5 form-control" name = "numOfFactor" [ngClass]="{ 'is-invalid': submitted && f.numOfFactor.errors }">
+      <input type = "number" class="col-sm-5 form-control" formControlName = "numOfFactor" name = "numOfFactor" [ngClass]="{ 'is-invalid': submitted && f.numOfFactor.errors }">
       <div *ngIf="submitted && f.numOfFactor.errors" class="invalid-feedback">
         <div *ngIf="f.numOfFactor.errors.required">Number of factors is required</div>
       </div>
@@ -33,7 +33,7 @@
   <div class="row">
     <div class="col-sm-2">Retention Time in ms:</div>
     <div class="col-sm-10">
-      <input type = "number" class="col-sm-5 form-control" value="" name = "retentionTime" [ngClass]="{ 'is-invalid': submitted && f.retentionTime.errors }">
+      <input type = "number" class="col-sm-5 form-control" formControlName = "retentionTime"   name = "retentionTime" [ngClass]="{ 'is-invalid': submitted && f.retentionTime.errors }">
       <div *ngIf="submitted && f.retentionTime.errors" class="invalid-feedback">
         <div *ngIf="f.retentionTime.errors.required">Retention time is required</div>
       </div>
@@ -51,7 +51,7 @@
       </div>
       <div class="col-sm-10">
           <i class="fa fa-info-circle text-primary" data-toggle="tooltip" data-placement="top" title="Upload json configuration file"></i>&nbsp;
-          <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+          <input type="file" name = "fileUpload" id="file" (change)="handleFileInput($event.target.files)">
       </div>
     </div>
   </div>
@@ -64,21 +64,21 @@
           <div class="row">
             <div class="col-sm-4">clean policy</div>
             <div class="col-sm-8">
-              <select class="form-control col-sm-6"><option></option></select>
+              <select formControlName = "cleanPolicy" class="form-control col-sm-6"><option></option></select>
             </div>
           </div>
 
           <div class="row">
             <div class="col-sm-4">compression type</div>
             <div class="col-sm-8">
-              <select class="form-control col-sm-6"><option></option></select>
+              <select formControlName = "compressionType" class="form-control col-sm-6"><option></option></select>
             </div>
           </div>
 
           <div class="row">
             <div class="col-sm-4">file.delete.delay.ms</div>
             <div class="col-sm-8">
-              <input type="text" class="form-control col-sm-6" />
+              <input type="text" formControlName = "fileDeleteDelayMs" class="form-control col-sm-6" />
             </div>
           </div>
 
@@ -187,7 +187,8 @@
   <div class="row mt-2">
     <div class="col-sm-2"></div>
     <div class="col-sm-10 text-right">
-      <input class="btn btn-sm btn-primary" type = "submit" value = "Save">
+      <input class="btn btn-sm btn-primary" *ngIf="isAddMode" type = "submit" value = "Save">
+      <input class="btn btn-sm btn-primary" *ngIf="!isAddMode" (click)="clickMethod('name')" type = "button" value = "Update">
       <input class="btn btn-sm btn-danger" (click)="onReset()" type = "reset" value = "Reset">
     </div>
   </div>

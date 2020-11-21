@@ -15,6 +15,7 @@ export class TopicAddComponent implements OnInit{
   isAddMode: boolean;
   fileToUpload: File = null;
   public show:boolean = true;
+  formTitle: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,19 +24,24 @@ export class TopicAddComponent implements OnInit{
   ) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.queryParams['id'];
+    this.id = this.route.snapshot.params['id'];
     this.isAddMode = !this.id;
-
+    if(!this.isAddMode){
+      this.formTitle = "EDIT EXISTING TOPIC";
+    } else {
+      this.formTitle = "ADD NEW TOPIC";
+    }
 
     this.addForm = this.formBuilder.group({
       topicName: ['', Validators.required],
       numOfPartition: ['', Validators.required],
       numOfFactor: ['', Validators.required],
-      retentionTime: ['', Validators.required]
+      retentionTime: ['', Validators.required],
+      cleanPolicy: [], compressionType: [], fileDeleteDelayMs: []
     });
 
     if(!this.isAddMode){
-      this.addForm.patchValue({topicName: "Topic 1", numOfPartition: 2});
+      this.addForm.patchValue({topicName: "Topic 1", numOfPartition: 2, numOfFactor: 3, retentionTime: 5000, fileDeleteDelayMs: 6000, compressionType: [{"id": 1},{"id": 2},{"id": 3},{"id": 4}]});
     }
 
   };
@@ -62,6 +68,12 @@ export class TopicAddComponent implements OnInit{
 
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
+  }
+
+  clickMethod(name: string) {
+    if(confirm("Are you sure to update?")) {
+      window.location.href='/';
+    }
   }
 
 }

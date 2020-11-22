@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent} from "../dashboard/dashboard.component";
 import { TopicAddComponent } from "../topic-add/topic-add.component";
+import { EventAddComponent } from "../event-add/event-add.component";
 
 const routes: Routes = [
   {
@@ -15,6 +16,14 @@ const routes: Routes = [
   {
     path: 'topic/:id',
     component: TopicAddComponent,
+  },
+  {
+    path: 'event',
+    component: EventAddComponent,
+  },
+  {
+    path: 'event/:id',
+    component: EventAddComponent,
   }
 ];
 
